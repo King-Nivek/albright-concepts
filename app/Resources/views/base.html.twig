@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/bootstrap-flatly-4-alpha.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/font-awesome-4.7.0.min.css') }}">
+            {#<link rel="stylesheet" href="{{ asset('css/custom.css') }}">#}
+        {% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    
+    <body>
+        {% block header %}
+            {% include 'fragments/_menu.html.twig' %}
+        {% endblock %}
+
+        <div class="container-fluid">
+            {% block body %}
+                <div class="row">
+                    <div class="col">
+
+                        <ol class="breadcrumb">
+                            {% set listSize = list|length %}
+                            {% if listSize > 1 %}
+                                
+                                {% for item in list|slice(0, listSize - 1) %}
+                                    
+                                    {% if item.address is same as("#") %}
+                                        <li class="breadcrumb-item">{{ item.name }}</li>
+                                        
+                                    {% else %}
+                                        <li class="breadcrumb-item"><a href="{{ item.address }}">{{ item.name }}</a></li>
+                                    {% endif %} 
+                                {% endfor %}
+                                <li class="breadcrumb-item active">{{ list|last.name }}</li>
+                            {% else %}
+                                <li class="breadcrumb-item active">{{ list[0].name }}
+                            {% endif %}
+                        </ol>
+                    </div>
+                </div>
+                <div class="row">
+                
+
+                        {% block main %}
+
+                        {% endblock %}
+
+                </div>
+            {% endblock %}
+        <div class="row">
+            {% block footer %}
+                <footer class="footer">
+
+                    <div id="footer-copyright" class="text-right mx-5">
+                        <p><small>&copy; {{ 'now'|date('Y') }} - An Albright Concepts Site</small></p>
+                    </div>
+
+                </footer>
+            {% endblock %}
+        </div>
+        </div>
+
+        {% block javascripts %}
+            <script src="{{ asset('js/jquery-3.2.0.min.js') }}"></script>
+            <script src="{{ asset('js/bootstrap-4a6.min.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>
