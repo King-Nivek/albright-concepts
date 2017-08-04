@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <div id="main" class="col">
+
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#demoReel" aria-expanded="true">Demo Reel</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#breakdown" aria-expanded="false">Breakdown Sheet</a>
+            </li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade in active show" id="demoReel" aria-expanded="true">
+
+                <div class="card">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <video 
+                            controls
+                            class="embed-responsive-item"
+                            poster="{{ asset('media/kmAlbright_DemoReel_Nov07-poster.jpg') }}">
+                            <source src="{{ asset('media/Albright_Kev_Final_Lo_HB_web.mp4') }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video> 
+                    </div>
+                    <div class="card-block">
+                        <h3 class="card-title">2007 Demo Reel</h3>
+                        <p class="card-text">
+                            Showing off three World War II Russian vehicles.<br />
+                            Download higher quality:&nbsp <a class="btn btn-outline-primary" href="{{ path('3dModelingDemoReelDownload') }}">2007 Demo Reel</a>
+                        </p>
+                    </div>
+                </div>
+            
+            </div>
+
+            <div class="tab-pane fade" id="breakdown" aria-expanded="false">
+
+                <div class="card">
+                    <div class="embed-responsive embed-responsive-1by1">
+                        <object 
+                            class="embed-responsive-item"
+                            data="{{ asset('media/kmAlbright_ Nov2007_DemoReel_BreakdownSheet.pdf') }}">
+                        </object> 
+                    </div>
+                    <div class="card-block">
+                        <h3 class="card-title">2007 Demo Reel Breakdown Sheet</h3>
+                        <p class="card-text">
+                            Download:&nbsp <a class="btn btn-outline-primary" href="{{ path('3dModelingBreakdownPDF') }}">2007 Demo Reel Breakdown Sheet</a>
+                        </p>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
