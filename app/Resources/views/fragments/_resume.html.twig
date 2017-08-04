@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <div id="main" class="col">
+        {# resumeText #} </br>
+        <div class="embed-responsive embed-responsive-1by1">
+            <object 
+                class="embed-responsive-item"
+                data="{{ asset(resumeText) }}">
+            </object>
+        </div><br />
+        <a class="btn btn-outline-primary" href="{{ resumePDF }}">Resume PDF</a>
+    </div>
+{% endblock %}
