@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <div id="main" class="col-2">
+        {% block sidebar %}
+            {# include 'fragments/_menu.html.twig' #}SideBar
+        {% endblock %}
+    </div>
+    <div class="col">
+        Gallery
+    </div>
+{% endblock %}
