@@ -122,3 +122,6 @@ tags
 !var/SymfonyRequirements.php
 /vendor/
 /web/bundles/
+
+#Node/npm
+/node_modules/
