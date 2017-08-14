@@ -8,4 +8,4 @@
 ## License
 [Repository License][license]
 
-[license]: LICENSE.md
+[license]: LICENSE
